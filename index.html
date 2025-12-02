@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>ZooFeed — зоомагазин кормів для тварин</title>
+  <meta
+    name="description"
+    content="ZooFeed — інтернет-магазин кормів для собак, котів, птахів та гризунів з доставкою протягом 24 годин."
+  />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="ZooFeed — зоомагазин кормів" />
+  <meta
+    property="og:description"
+    content="Підбір кормів для собак, котів, птахів та гризунів з доставкою протягом 24 годин."
+  />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://zoofeed.demo/" />
+  <meta property="og:image" content="og-image.jpg" />
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- =========================
+       HEADER
+       ========================= -->
+ <header class="header">
+  <div class="logo">ZOOFEED</div>
+
+  <nav class="nav">
+    <a href="#store" data-nav="store" class="is-active" data-i18n="nav_shop">Магазин</a>
+    <a href="#about" data-nav="about" data-i18n="nav_about">Про нас</a>
+    <a href="#reviews" data-nav="reviews" data-i18n="nav_reviews">Відгуки</a>
+    <a href="#faq" data-nav="faq" data-i18n="nav_faq">FAQ</a>
+    <a href="#contacts" data-nav="contacts" data-i18n="nav_contacts">Контакти</a>
+  </nav>
+
+  <div class="header-right">
+    <!-- вибір мови -->
+    <select id="langSel">
+      <option value="uk">UA</option>
+      <option value="ru">RU</option>
+      <option value="en">EN</option>
+    </select>
+    <!-- Auto-translate toggle removed -->
+
+    <!-- Обране -->
+    <div class="badge-btn">
+      <button id="favBtn" type="button" aria-label="Обране">
+        ⭐
+      </button>
+      <div class="badge" id="favCount">0</div>
+    </div>
+
+    <!-- Порівняння -->
+    <div class="badge-btn">
+      <button id="cmpBtn" type="button" aria-label="Порівняння">
+        ⚖️
+      </button>
+      <div class="badge" id="cmpCount">0</div>
+    </div>
+
+    <!-- Кошик -->
+    <div class="badge-btn">
+      <button id="cartBtn" type="button" aria-label="Кошик">
+        🛒
+      </button>
+      <div class="badge" id="cartCount">0</div>
+    </div>
+
+    <!-- КНОПКА ОСОБИСТОГО КАБІНЕТУ -->
+    <button id="accountBtn" class="btn ghost" type="button">
+      <span style="margin-right:6px">👤</span>
+      <span data-i18n="auth_title">Особистий кабінет</span>
+    </button>
+  </div>
+</header>
+
+  <!-- =========================
+       PAGE WRAPPER
+       ========================= -->
+  <main class="page">
+    <!-- =========================
+         HERO
+         ========================= -->
+    <section id="hero" class="hero" data-section="hero">
+      <div class="hero-badge" data-i18n="hero_badge">
+        Найкращий зоомагазин України
+      </div>
+
+      <h1 class="hero-title" data-i18n="hero_title">
+        Щасливі тварини починаються з правильного харчування
+      </h1>
+
+      <p class="hero-subtitle" data-i18n="hero_subtitle">
+        Підбір кормів для собак, котів, птахів та гризунів з доставкою протягом
+        24 годин.
+      </p>
+
+      <div class="hero-bullets">
+        <span data-i18n="hero_b1">100% натуральні інгредієнти</span>
+        <span data-i18n="hero_b2">Офіційні постачальники</span>
+        <span data-i18n="hero_b3">Бонуси за кожне замовлення</span>
+      </div>
+
+      <div class="hero-actions">
+        <button
+          id="heroShopBtn"
+          class="btn primary"
+          type="button"
+          data-i18n="hero_cta_shop"
+        >
+          До каталогу
+        </button>
+        <button
+          id="heroHelpBtn"
+          class="btn ghost"
+          type="button"
+          data-i18n="hero_cta_help"
+        >
+          Підібрати корм
+        </button>
+      </div>
+    </section>
+
+    <!-- =========================
+         BENEFITS
+         ========================= -->
+    <section id="benefits" class="benefits" data-section="benefits">
+      <header class="section-header">
+        <h2 class="section-title" data-i18n="benefits_title">Чому ZooFeed?</h2>
+        <p class="section-sub" data-i18n="benefits_sub">
+          Невеликий магазин з великим досвідом у кормі для тварин.
+        </p>
+      </header>
+
+      <div class="benefits-grid">
+        <article class="benefit-card">
+          <div class="benefit-icon">⚡</div>
+          <h3 data-i18n="benefit_fast">Доставка за 24 години</h3>
+          <p data-i18n="benefit_fast_text">
+            Відправляємо замовлення в той самий або наступний робочий день.
+          </p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-icon">🩺</div>
+          <h3 data-i18n="benefit_vet">Рекомендації ветеринарів</h3>
+          <p data-i18n="benefit_vet_text">
+            Обираємо корми з перевіреним складом та репутацією.
+          </p>
+        </article>
+
+        <article class="benefit-card">
+          <div class="benefit-icon">🎁</div>
+          <h3 data-i18n="benefit_bonus">Бонуси за покупки</h3>
+          <p data-i18n="benefit_bonus_text">
+            Нараховуємо внутрішні бонуси, які можна використати при наступному
+            замовленні.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         CATALOG
+         ========================= -->
+    <section id="store" data-section="store">
+      <header class="section-header">
+        <h2 class="section-title" data-i18n="catalog_title">
+          Каталог кормів
+        </h2>
+        <p class="section-sub" data-i18n="catalog_sub">
+          Оберіть категорію, бренд або скористайтеся пошуком.
+        </p>
+      </header>
+
+      <div class="filters" aria-label="Фільтри каталогу">
+        <select id="catFilter" class="select" aria-label="Категорія">
+          <option value="all" data-i18n="filter_cat_all">Усі категорії</option>
+          <option value="dogs" data-i18n="filter_cat_dogs">Для собак</option>
+          <option value="cats" data-i18n="filter_cat_cats">Для котів</option>
+          <option value="birds" data-i18n="filter_cat_birds">Для птахів</option>
+          <option value="rodents" data-i18n="filter_cat_rodents">
+            Для гризунів
+          </option>
+        </select>
+
+        <select
+          id="brandFilter"
+          class="select"
+          aria-label="Фільтр за брендом"
+        >
+          <option value="all" data-i18n="filter_brand_all">
+            Усі бренди
+          </option>
+        </select>
+
+        <input
+          id="searchInput"
+          class="input"
+          type="search"
+          autocomplete="off"
+          data-i18n-placeholder="filter_search"
+          placeholder="Пошук..."
+          aria-label="Пошук товарів"
+        />
+
+        <select id="sortSelect" class="select" aria-label="Сортування">
+          <option value="popular" data-i18n="sort_popular">
+            За популярністю
+          </option>
+          <option value="price_asc" data-i18n="sort_price_asc">
+            Спочатку дешевші
+          </option>
+          <option value="price_desc" data-i18n="sort_price_desc">
+            Спочатку дорожчі
+          </option>
+        </select>
+      </div>
+
+      <div id="grid" class="grid" aria-live="polite"></div>
+
+      <div id="pager" class="pager" aria-label="Пагінація каталогу"></div>
+    </section>
+
+    <!-- =========================
+         ABOUT
+         ========================= -->
+    <section id="about" data-section="about">
+      <header class="section-header">
+        <h2 class="section-title" data-i18n="about_title">Про ZooFeed</h2>
+        <p class="section-sub" data-i18n="about_text">
+          ZooFeed — інтернет-магазин кормів для тварин.
+        </p>
+      </header>
+
+      <div class="about-grid">
+        <article class="about-card">
+          <div class="about-card-title" data-i18n="about_card1_title">
+            Для кого магазин?
+          </div>
+          <p data-i18n="about_card1_text">
+            Для власників собак, котів, птахів та гризунів, які хочуть швидко
+            підібрати якісний корм.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <div class="about-card-title" data-i18n="about_card2_title">
+            Що всередині?
+          </div>
+          <p data-i18n="about_card2_text">
+            Каталог товарів, кошик, обране, порівняння, відгуки, базова
+            авторизація та форма контактів.
+          </p>
+        </article>
+
+        <article class="about-card">
+          <div class="about-card-title" data-i18n="about_card3_title">
+            Навіщо це все?
+          </div>
+          <p data-i18n="about_card3_text">
+            Щоб попрактикуватися у верстці, JavaScript та роботі з
+            localStorage у реалістичному проєкті.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         REVIEWS
+         ========================= -->
+    <section id="reviews" data-section="reviews">
+      <header class="section-header">
+        <h2 class="section-title" data-i18n="reviews_title">
+          Відгуки покупців
+        </h2>
+        <p class="section-sub" data-i18n="reviews_text">
+          Для спрощення ми показуємо кілька історій від покупців, а також
+          даємо змогу додати свій відгук.
+        </p>
+      </header>
+
+      <div
+        id="reviewsGrid"
+        class="reviews-grid"
+        aria-live="polite"
+        aria-label="Список відгуків"
+      ></div>
+
+      <div class="reviews-controls">
+        <button
+          id="reviewsPrev"
+          type="button"
+          class="reviews-btn"
+          data-i18n="reviews_prev_btn"
+        >
+          Попередні
+        </button>
+        <span
+          id="reviewsPageIndicator"
+          class="reviews-page-indicator"
+        >
+          1 / 1
+        </span>
+        <button
+          id="reviewsNext"
+          type="button"
+          class="reviews-btn"
+          data-i18n="reviews_next_btn"
+        >
+          Наступні
+        </button>
+      </div>
+
+      <div class="reviews-footer-actions">
+        <button
+          id="reviewToggleBtn"
+          type="button"
+          class="btn ghost review-toggle-btn"
+          data-i18n="reviews_toggle_btn"
+        >
+          Залишити відгук
+        </button>
+      </div>
+
+      <!-- ФОРМА ВІДГУКУ -->
+      <div
+        id="reviewFormWrapper"
+        class="review-form-wrapper is-hidden"
+      >
+        <h3
+          class="review-form-title"
+          data-i18n="review_form_title"
+        >
+          Залишити відгук
+        </h3>
+
+        <form id="reviewForm" class="review-form">
+          <div class="review-form-row">
+            <div class="review-field">
+              <label for="reviewName" data-i18n="review_name_label">
+                Ваше ім’я
+              </label>
+              <input
+                id="reviewName"
+                type="text"
+                data-i18n-placeholder="review_placeholder_name"
+                placeholder="Олена"
+              />
+            </div>
+
+            <div class="review-field">
+              <label for="reviewPet" data-i18n="review_pet_label">
+                Улюбленець / порода
+              </label>
+              <input
+                id="reviewPet"
+                type="text"
+                data-i18n-placeholder="review_placeholder_pet"
+                placeholder="Собака, мопс; кіт, британський тощо"
+              />
+            </div>
+          </div>
+
+          <div class="review-form-row">
+            <div class="review-field">
+              <label for="reviewCity" data-i18n="review_city_label">
+                Місто
+              </label>
+              <input
+                id="reviewCity"
+                type="text"
+                data-i18n-placeholder="review_placeholder_city"
+                placeholder="Київ"
+              />
+            </div>
+
+            <div class="review-field">
+              <label for="reviewRating" data-i18n="review_rating_label">
+                Оцінка
+              </label>
+              <select id="reviewRating">
+                <option value="5">5 ★</option>
+                <option value="4">4 ★</option>
+                <option value="3">3 ★</option>
+                <option value="2">2 ★</option>
+                <option value="1">1 ★</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="review-field">
+            <label for="reviewText" data-i18n="review_text_label">
+              Ваш відгук
+            </label>
+            <textarea
+              id="reviewText"
+              data-i18n-placeholder="review_placeholder_text"
+              placeholder="Розкажіть, як вам сервіс та корм 😊"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="btn primary"
+            data-i18n="review_submit_btn"
+          >
+            Надіслати відгук
+          </button>
+          <div id="reviewHint" class="review-hint"></div>
+        </form>
+      </div>
+    </section>
+
+    <!-- =========================
+         FAQ
+         ========================= -->
+    <section id="faq" data-section="faq">
+      <header class="section-header">
+        <h2 class="section-title" data-i18n="faq_title">
+          Поширені запитання
+        </h2>
+      </header>
+
+      <div class="faq-list">
+        <article class="faq-item">
+          <strong data-i18n="faq_q1">Чи справжній це магазин?</strong>
+          <span data-i18n="faq_a1">
+            Це сайт для навчання фронтенду.
+          </span>
+        </article>
+
+        <article class="faq-item">
+          <strong data-i18n="faq_q2">
+            Де зберігаються кошик та обране?
+          </strong>
+          <span data-i18n="faq_a2">
+            Дані зберігаються у вашому браузері в localStorage.
+          </span>
+        </article>
+      </div>
+    </section>
+
+    <!-- =========================
+         CONTACTS
+         ========================= -->
+    <section id="contacts" data-section="contacts">
+      <header class="section-header">
+        <h2 class="section-title" data-i18n="contacts_title">
+          Контакти
+        </h2>
+        <p class="section-sub" data-i18n="contacts_text">
+          Маєте питання щодо корму, доставки або сайту? Напишіть нам – відповімо
+          протягом робочого дня.
+        </p>
+      </header>
+
+      <div class="review-form-wrapper">
+        <h3
+          class="review-form-title"
+          data-i18n="contacts_strip_title"
+        >
+          Будьте на зв’язку із ZooFeed
+        </h3>
+        <p class="section-sub" data-i18n="contacts_strip_sub">
+          Задайте питання про замовлення, доставку або сайт — відповімо
+          протягом робочого дня.
+        </p>
+
+        <form id="contactsForm" class="review-form">
+          <div class="review-form-row">
+            <div class="review-field">
+              <label for="contactsName">
+                <span data-i18n="contacts_name_placeholder">Ім’я</span>
+              </label>
+              <input
+                id="contactsName"
+                type="text"
+                data-i18n-placeholder="contacts_name_placeholder"
+                placeholder="Ім’я"
+              />
+            </div>
+            <div class="review-field">
+              <label for="contactsEmail">
+                <span data-i18n="contacts_email_placeholder">E-mail</span>
+              </label>
+              <input
+                id="contactsEmail"
+                type="email"
+                data-i18n-placeholder="contacts_email_placeholder"
+                placeholder="E-mail"
+              />
+            </div>
+          </div>
+
+          <div class="review-form-row">
+            <div class="review-field">
+              <label for="contactsTopic">
+                <span data-i18n="contacts_topic_placeholder">
+                  Про що питання?
+                </span>
+              </label>
+              <select id="contactsTopic">
+                <option value="order" data-i18n="contacts_topic_order">
+                  Замовлення та доставка
+                </option>
+                <option value="food" data-i18n="contacts_topic_food">
+                  Підбір корму
+                </option>
+                <option value="payment" data-i18n="contacts_topic_payment">
+                  Оплата
+                </option>
+                <option value="other" data-i18n="contacts_topic_other">
+                  Інше питання
+                </option>
+              </select>
+            </div>
+          </div>
+
+          <div class="review-field">
+            <label for="contactsMessage">Повідомлення</label>
+            <textarea
+              id="contactsMessage"
+              rows="4"
+              placeholder="Напишіть своє питання…"
+            ></textarea>
+          </div>
+
+          <button
+            type="submit"
+            class="btn primary"
+            data-i18n="contacts_send_btn"
+          >
+            Надіслати повідомлення
+          </button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- =========================
+       DRAWERS: CART / FAV / CMP
+       ========================= -->
+
+  <!-- CART -->
+  <div id="cartDrawer" class="drawer" aria-hidden="true">
+    <aside class="cart-panel" role="dialog" aria-modal="true">
+      <header class="cart-header">
+        <h2 data-i18n="cart_title">Кошик</h2>
+        <button
+          id="cartClose"
+          type="button"
+          class="cart-close-btn"
+          aria-label="Закрити кошик"
+        >
+          ✕
+        </button>
+      </header>
+
+      <div id="cartList" class="cart-list"></div>
+
+      <footer class="cart-footer">
+        <div class="cart-total-row">
+          <span
+            class="cart-total-label"
+            data-i18n="cart_total"
+          >
+            Всього:
+          </span>
+          <span id="cartTotal" class="cart-total-value">0 ₴</span>
+        </div>
+
+        <p class="cart-demo-note">
+          Це версія магазину — замовлення не надсилається на сервер.
+        </p>
+
+        <button
+          id="cartCheckoutBtn"
+          class="btn primary"
+          type="button"
+          data-i18n="cart_checkout"
+        >
+          Оформити замовлення
+        </button>
+      </footer>
+    </aside>
+  </div>
+
+  <!-- FAV -->
+  <div id="favDrawer" class="drawer" aria-hidden="true">
+    <aside class="cart-panel" role="dialog" aria-modal="true">
+      <header class="cart-header">
+        <h2>Обране</h2>
+        <button
+          id="favClose"
+          type="button"
+          class="cart-close-btn"
+          aria-label="Закрити обране"
+        >
+          ✕
+        </button>
+      </header>
+
+      <div id="favList" class="cart-list"></div>
+    </aside>
+  </div>
+
+  <!-- CMP -->
+  <div id="cmpDrawer" class="drawer" aria-hidden="true">
+    <aside class="cart-panel" role="dialog" aria-modal="true">
+      <header class="cart-header">
+        <h2>Порівняння</h2>
+        <button
+          id="cmpClose"
+          type="button"
+          class="cart-close-btn"
+          aria-label="Закрити порівняння"
+        >
+          ✕
+        </button>
+      </header>
+
+      <div id="cmpList" class="cart-list"></div>
+    </aside>
+  </div>
+
+  <!-- =========================
+       SUPPORT WIDGET
+       ========================= -->
+  <div class="support-widget">
+    <button
+      id="supportToggle"
+      class="support-btn"
+      type="button"
+      aria-label="Відкрити чат підтримки"
+    >
+      <span class="support-avatar">💬</span>
+      <span class="support-online-dot"></span>
+    </button>
+    <div class="support-label" data-i18n="support_label">
+      Підтримка
+    </div>
+
+    <section
+      id="supportPanel"
+      class="support-panel"
+      aria-label="Чат підтримки"
+    >
+      <header class="support-header">
+        <div class="support-header-left">
+          <div class="support-avatar-sm">🐾</div>
+          <div>
+            <div
+              class="support-title"
+              data-i18n="support_title"
+            >
+              Служба підтримки
+            </div>
+            <div
+              class="support-status"
+              data-i18n="support_status"
+            >
+              Онлайн • відповімо за кілька хвилин
+            </div>
+          </div>
+        </div>
+        <button
+          type="button"
+          class="support-close"
+          aria-label="Закрити чат підтримки"
+        >
+          ✕
+        </button>
+      </header>
+
+      <div class="support-body">
+        <p class="support-tip" data-i18n="support_tip">
+          Напишіть нам запитання щодо замовлення, доставки чи роботи сайту.
+        </p>
+        <div
+          class="support-msg support-msg-agent"
+          data-i18n="support_hello"
+        >
+          Вітаю! Я Оля з підтримки ZooFeed 🐾 Чим можу допомогти?
+        </div>
+      </div>
+
+      <form id="supportForm" class="support-form">
+        <textarea
+          id="supportText"
+          data-i18n-placeholder="support_placeholder"
+          placeholder="Опишіть коротко ваше питання…"
+        ></textarea>
+        <button
+          type="submit"
+          class="btn primary support-send"
+          data-i18n="support_send_btn"
+        >
+          Надіслати
+        </button>
+      </form>
+
+      <p class="support-footnote" data-i18n="support_footnote">
+        Це чат. Повідомлення зберігаються тільки у вашому браузері.
+      </p>
+    </section>
+  </div>
+
+  <!-- =========================
+       PRODUCT MODAL
+       ========================= -->
+  <div
+    id="productModal"
+    class="pm-product-modal"
+    aria-hidden="true"
+  >
+    <div class="pm-dialog" role="dialog" aria-modal="true">
+      <button
+        id="pmCloseBtn"
+        type="button"
+        class="pm-close-btn"
+        aria-label="Закрити картку товару"
+      >
+        ✕
+      </button>
+
+      <div class="pm-product-main">
+        <div class="pm-product-thumb">
+          <img
+            id="pmImg"
+            src=""
+            alt=""
+            loading="lazy"
+          />
+        </div>
+
+        <div class="pm-product-info">
+          <div class="pm-breadcrumb">
+            <span id="pmBrand"></span> •
+            <span id="pmCategory"></span> •
+            <span id="pmWeight"></span>
+          </div>
+
+          <h3 id="pmTitle" class="pm-title"></h3>
+
+          <div class="pm-price-row">
+            <div id="pmPrice" class="pm-price-main"></div>
+            <div id="pmPricePerKg" class="pm-price-kg"></div>
+          </div>
+
+          <div class="pm-meta-row">
+            <span
+              id="pmStockBadge"
+              class="pm-stock-badge pm-stock-ok"
+            >
+            </span>
+            <span id="pmRatingBadge" class="pm-rating-badge">
+              4.8 ★ (20+)
+            </span>
+          </div>
+
+          <p id="pmDesc" class="pm-desc"></p>
+
+          <div class="pm-actions">
+            <button
+              type="button"
+              id="pmAddToCartBtn"
+              class="btn primary pm-add-btn"
+              data-i18n="pm_add_to_cart"
+            >
+              Додати в кошик
+            </button>
+          </div>
+
+          <section class="pm-comments">
+            <div class="pm-comments-header">
+              <h4
+                class="pm-comments-title"
+                data-i18n="comments_title"
+              >
+                Коментарі покупців
+              </h4>
+              <button
+                type="button"
+                id="pmCommentsToggleBtn"
+                class="pm-comments-toggle"
+              >
+                Сховати коментарі
+              </button>
+            </div>
+
+            <div id="pmCommentsBody" class="pm-comments-body">
+              <div
+                id="pmCommentsEmptyText"
+                class="pm-comments-empty"
+              ></div>
+              <div id="pmCommentsList" class="pm-comments-list"></div>
+
+              <form
+                id="pmCommentForm"
+                class="pm-comment-form"
+              >
+                <div class="pm-field">
+                  <span data-i18n="comments_name_label">
+                    Ваше ім’я
+                  </span>
+                  <input
+                    id="pmCommentName"
+                    type="text"
+                    data-i18n-placeholder="comments_name_placeholder"
+                    placeholder="Ім’я"
+                  />
+                </div>
+                <div class="pm-field">
+                  <span data-i18n="comments_text_label">
+                    Ваш коментар
+                  </span>
+                  <textarea
+                    id="pmCommentText"
+                    data-i18n-placeholder="comments_text_placeholder"
+                    placeholder="Поділіться враженнями про цей товар"
+                  ></textarea>
+                </div>
+                <button
+                  type="submit"
+                  class="btn primary pm-comment-submit"
+                  data-i18n="comments_submit"
+                >
+                  Надіслати коментар
+                </button>
+                <div
+                  id="pmCommentHint"
+                  class="pm-comment-hint"
+                ></div>
+              </form>
+            </div>
+          </section>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+   <!-- =========================
+       AUTH MODAL
+       ========================= -->
+  <div id="authModal">
+    <div class="auth-dialog">
+      <!-- Хрестик зверху -->
+      <button
+        type="button"
+        class="cart-close-btn"
+        data-auth-close
+        aria-label="Закрити"
+        style="position:absolute;top:14px;right:14px;"
+      >
+        ✕
+      </button>
+
+      <h2 class="auth-title" data-i18n="auth_title">Особистий кабінет</h2>
+      <p class="auth-subtitle" data-i18n="auth_subtitle">
+        Увійдіть або зареєструйтесь.
+      </p>
+
+      <form id="authForm">
+        <div class="auth-field">
+          <label for="authEmail">E-MAIL</label>
+          <input
+            id="authEmail"
+            type="email"
+            autocomplete="email"
+            required
+          />
+        </div>
+
+        <div class="auth-field">
+          <label for="authPassword" data-i18n="auth_password">Пароль</label>
+          <input
+            id="authPassword"
+            type="password"
+            autocomplete="current-password"
+            required
+          />
+        </div>
+
+        <!-- кнопки Закрити + Увійти -->
+        <div class="auth-actions">
+          <button
+            type="button"
+            class="btn ghost"
+            data-auth-close
+          >
+            Закрити
+          </button>
+
+          <button
+            type="submit"
+            class="btn primary"
+          >
+            <span data-i18n="auth_login_btn">Увійти</span>
+          </button>
+        </div>
+
+        <!-- ВЕЛИКА КНОПКА РЕЄСТРАЦІЇ -->
+        <div class="auth-actions" style="margin-top:10px;">
+          <a
+            href="register.html"
+            class="btn ghost"
+            style="flex:1;justify-content:center;text-align:center;"
+          >
+            Зареєструватися
+          </a>
+        </div>
+
+        <!-- підказки / помилки -->
+        <p id="authHint"></p>
+      </form>
+
+      <!-- Кнопка виходу з акаунту -->
+      <button
+        id="logoutBtn"
+        type="button"
+        class="btn ghost"
+        style="margin-top:12px;width:100%;"
+      >
+        Вийти з акаунту
+      </button>
+    </div>
+  </div>
+
+  <!-- =========================
+       ORDER MODAL
+       ========================= -->
+  <div id="orderModal" class="order-modal-backdrop">
+    <div class="order-modal">
+      <!-- Верхня частина: заголовок + хрестик -->
+      <div class="order-modal-header">
+        <div>
+          <h2>Оформлення замовлення</h2>
+          <p>Перевірте товари та заповніть контактні дані.</p>
+        </div>
+        <button
+          type="button"
+          class="order-modal-close"
+          data-order-close
+          aria-label="Закрити"
+        >
+          ✕
+        </button>
+      </div>
+
+      <!-- Основний контент: зліва товари, справа форма -->
+      <div class="order-modal-content">
+        <!-- Ліва колонка: список товарів -->
+        <section class="order-summary">
+          <div class="order-summary-header">
+            <h3>Ваше замовлення</h3>
+            <span id="orderSummaryCount">0 товарів</span>
+          </div>
+
+          <div class="order-summary-items" id="orderSummaryItems">
+            <!-- JS підставить рядки товарів з кошика -->
+          </div>
+
+          <div class="order-summary-footer">
+            <div class="order-summary-row">
+              <span>Товарів:</span>
+              <span id="orderSummaryItemsCount">0</span>
+            </div>
+            <div class="order-summary-row order-summary-total">
+              <span>Сума до оплати:</span>
+              <span id="orderSummaryTotal">0 ₴</span>
+            </div>
+          </div>
+        </section>
+
+        <!-- Права колонка: форма -->
+        <section class="order-form-box">
+          <form id="orderForm" class="order-form">
+            <div class="order-form-grid">
+              <label class="order-field">
+                <span>Ім’я та прізвище *</span>
+                <input
+                  id="orderName"
+                  type="text"
+                  autocomplete="name"
+                  required
+                />
+              </label>
+
+              <label class="order-field">
+                <span>Телефон *</span>
+                <input
+                  id="orderPhone"
+                  type="tel"
+                  placeholder="+38..."
+                  autocomplete="tel"
+                  required
+                />
+              </label>
+
+              <label class="order-field">
+                <span>E-mail (необов’язково)</span>
+                <input
+                  id="orderEmail"
+                  type="email"
+                  autocomplete="email"
+                />
+              </label>
+
+              <label class="order-field">
+                <span>Місто / відділення *</span>
+                <input
+                  id="orderAddress"
+                  type="text"
+                  placeholder="Київ, Нова Пошта №..."
+                  required
+                />
+              </label>
+
+              <label class="order-field">
+                <span>Спосіб доставки</span>
+                <select id="orderDelivery">
+                  <option value="nova_poshta">Нова Пошта</option>
+                  <option value="ukrposhta">Укрпошта</option>
+                  <option value="courier">Кур’єр по місту</option>
+                  <option value="pickup">Самовивіз</option>
+                </select>
+              </label>
+
+              <label class="order-field">
+                <span>Оплата</span>
+                <select id="orderPayment">
+                  <option value="card">Оплата на картку</option>
+                  <option value="cod">Післяплата</option>
+                  <option value="cash">Готівкою при отриманні</option>
+                </select>
+              </label>
+
+              <label class="order-field order-field-full">
+                <span>Коментар до замовлення</span>
+                <textarea
+                  id="orderComment"
+                  rows="3"
+                  placeholder="Наприклад: дзвонити після 18:00"
+                ></textarea>
+              </label>
+            </div>
+
+            <div class="order-form-actions">
+              <button
+                type="button"
+                class="btn ghost"
+                data-order-close
+              >
+                Скасувати
+              </button>
+
+              <button
+                type="submit"
+                class="btn primary order-submit-btn"
+              >
+                Підтвердити замовлення
+              </button>
+            </div>
+
+            <p id="orderHint" class="order-hint"></p>
+          </form>
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <!-- =========================
+       FOOTER
+       ========================= -->
+  <footer class="site-footer">
+    <div class="sf-inner">
+      <!-- BRAND / CONTACTS -->
+      <div class="sf-col sf-col-brand">
+        <div class="sf-logo">ZooFeed</div>
+        <p class="sf-desc">
+          ZooFeed — зоомагазин для тренування верстки та JavaScript.
+          Всі дані зберігаються лише у вашому браузері.
+        </p>
+        <ul class="sf-contacts">
+          <li>
+            📞
+            <a href="tel:+380000000000">+38 (000) 000-00-00</a>
+          </li>
+          <li>
+            ✉️
+            <a href="mailto:support@zoofeed.demo"
+              >support@zoofeed.demo</a
+            >
+          </li>
+          <li>🚚 Доставка по Україні</li>
+        </ul>
+      </div>
+
+      <!-- SHOP LINKS -->
+      <div class="sf-col">
+        <div class="sf-title" data-i18n="footer_col_shop">
+          Покупцям
+        </div>
+        <a href="#store" class="sf-link" data-i18n="footer_link_catalog">
+          Каталог товарів
+        </a>
+        <a href="#reviews" class="sf-link" data-i18n="footer_link_reviews">
+          Відгуки
+        </a>
+        <a href="#faq" class="sf-link" data-i18n="footer_link_faq">
+          Поширені запитання
+        </a>
+        <a
+          href="#contacts"
+          class="sf-link"
+          data-i18n="footer_link_contacts"
+        >
+          Контакти
+        </a>
+      </div>
+
+      <!-- INFO -->
+      <div class="sf-col">
+        <div class="sf-title" data-i18n="footer_col_info">
+          Інформація
+        </div>
+
+        <div class="sf-chips">
+          <button
+            type="button"
+            data-payment="Visa/Mastercard"
+          >
+            Visa / Mastercard
+          </button>
+          <button type="button" data-payment="Apple Pay">
+            Apple Pay
+          </button>
+          <button type="button" data-payment="Google Pay">
+            Google Pay
+          </button>
+        </div>
+
+        <div class="sf-rating">
+          <div class="sf-rating-row">
+            <span data-i18n="footer_rating_label">
+              Рейтинг магазину:
+            </span>
+            <strong>4.9</strong>
+          </div>
+          <div class="sf-rating-stars">★★★★★</div>
+          <div
+            class="sf-rating-note"
+            data-i18n="footer_rating_source"
+          >
+            на основі оцінок
+          </div>
+        </div>
+      </div>
+
+      <!-- SOCIAL -->
+      <div class="sf-col">
+        <div class="sf-title" data-i18n="footer_col_social">
+          Ми в соцмережах
+        </div>
+        <div class="sf-chips">
+          <button
+            type="button"
+            data-social="instagram"
+            aria-label="Відкрити Instagram ZooFeed"
+          >
+            Instagram
+          </button>
+          <button
+            type="button"
+            data-social="facebook"
+            aria-label="Відкрити Facebook ZooFeed"
+          >
+            Facebook
+          </button>
+          <button
+            type="button"
+            data-social="telegram"
+            aria-label="Відкрити Telegram ZooFeed"
+          >
+            Telegram
+          </button>
+          <button
+            type="button"
+            data-social="viber"
+            aria-label="Відкрити Viber ZooFeed"
+          >
+            Viber
+          </button>
+        </div>
+      </div>
+    </div>
+
+      <div class="sf-bottom">
+      <span data-i18n="footer_note">
+        © 2025 ZooFeed. Дані зберігаються лише у вашому браузері.
+      </span>
+      <span data-i18n="footer_made_by">
+        Створено для навчання фронтенду
+      </span>
+    </div>
+  </footer>
+
+  <!-- SCRIPTS -->
+  <script src="data.js"></script>
+  <script src="helpers.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

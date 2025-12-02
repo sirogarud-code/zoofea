@@ -1,0 +1,402 @@
+/* ================== базове оформлення ================== */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+  background: #020617;
+  color: #e5e7eb;
+  min-height: 100vh;
+}
+
+/* кнопки */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 18px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    transform 0.12s,
+    box-shadow 0.18s,
+    border-color 0.15s;
+}
+
+.btn.primary {
+  background: #22c55e;
+  color: #022c22;
+  box-shadow: 0 8px 18px rgba(34, 197, 94, 0.45);
+}
+
+.btn.primary:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 26px rgba(34, 197, 94, 0.7);
+}
+
+.btn.ghost {
+  background: rgba(15, 23, 42, 0.95);
+  border-color: rgba(148, 163, 184, 0.4);
+  color: #e5e7eb;
+}
+
+.btn.ghost:hover {
+  background: rgba(17, 24, 39, 1);
+}
+
+/* ================== header ================== */
+
+.admin-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: #020617;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.8);
+  border-bottom: 1px solid #0f172a;
+}
+
+.admin-header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px 24px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.admin-logo {
+  font-size: 20px;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #f9fafb;
+}
+
+/* tabs */
+
+.admin-tabs {
+  display: flex;
+  gap: 8px;
+}
+
+.admin-tab {
+  border-radius: 999px;
+  padding: 8px 16px;
+  border: 1px solid #1f2937;
+  background: #020617;
+  color: #e5e7eb;
+  cursor: pointer;
+  font-size: 14px;
+  transition:
+    background 0.15s,
+    color 0.15s,
+    box-shadow 0.18s,
+    transform 0.12s,
+    border-color 0.15s;
+}
+
+.admin-tab.is-active {
+  background: rgba(16, 185, 129, 0.12);
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.5),
+    0 10px 26px rgba(15, 23, 42, 0.9);
+}
+
+.admin-tab:hover:not(.is-active) {
+  background: rgba(15, 23, 42, 0.95);
+  transform: translateY(-1px);
+}
+
+.admin-link-site {
+  margin-left: auto;
+  color: #e5e7eb;
+  font-size: 14px;
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 999px;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid #1f2937;
+}
+
+.admin-link-site:hover {
+  background: rgba(30, 64, 175, 0.9);
+  border-color: rgba(129, 140, 248, 0.9);
+}
+
+/* ================== main layout ================== */
+
+.admin-main {
+  max-width: 1200px;
+  margin: 16px auto 32px;
+  padding: 0 24px;
+}
+
+.tab-panel {
+  display: none;
+}
+
+.tab-panel.is-active {
+  display: block;
+}
+
+.panel-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.3fr) minmax(0, 1.4fr);
+  gap: 18px;
+}
+
+.panel-grid.single {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.panel-block {
+  background: radial-gradient(circle at top left, #020617 0%, #000 100%);
+  border-radius: 18px;
+  padding: 16px 18px 18px;
+  border: 1px solid rgba(31, 41, 55, 0.9);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.9);
+}
+
+.panel-block-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.panel-block-sub {
+  font-size: 13px;
+  color: #9ca3af;
+  margin: 0 0 10px;
+}
+
+/* фільтри */
+
+.panel-filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.panel-filters .field {
+  flex: 1;
+}
+
+/* поля */
+
+.field {
+  margin-bottom: 10px;
+}
+
+.field span {
+  display: block;
+  font-size: 12px;
+  color: #9ca3af;
+  margin-bottom: 3px;
+}
+
+.field-input {
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid rgba(55, 65, 81, 0.9);
+  background: rgba(15, 23, 42, 0.95);
+  color: #e5e7eb;
+  padding: 7px 10px;
+  font-size: 13px;
+  outline: none;
+}
+
+.field-input-sm {
+  padding: 5px 8px;
+  font-size: 12px;
+}
+
+.field-input:focus {
+  border-color: #22c55e;
+  box-shadow: 0 0 0 1px rgba(34, 197, 94, 0.5);
+}
+
+.field-textarea {
+  resize: vertical;
+  min-height: 120px;
+  max-height: 320px;
+}
+
+.field-hint {
+  margin-top: 4px;
+  font-size: 11px;
+  color: #6b7280;
+}
+
+/* таблиці */
+
+.table-wrapper {
+  max-height: 470px;
+  overflow: auto;
+  border-radius: 14px;
+  border: 1px solid rgba(31, 41, 55, 0.9);
+  background: radial-gradient(circle at top, #020617 0%, #020617 70%);
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 7px 10px;
+  border-bottom: 1px solid rgba(31, 41, 55, 0.9);
+  white-space: nowrap;
+}
+
+.admin-table thead {
+  background: rgba(15, 23, 42, 0.98);
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.admin-table tbody tr {
+  cursor: pointer;
+}
+
+.admin-table tbody tr:nth-child(2n) {
+  background: rgba(15, 23, 42, 0.6);
+}
+
+.admin-table tbody tr:hover {
+  background: rgba(30, 64, 175, 0.5);
+}
+
+.admin-table tbody tr.is-selected {
+  background: rgba(16, 185, 129, 0.25);
+}
+
+/* маленька таблиця */
+
+.admin-table-sm th,
+.admin-table-sm td {
+  padding: 5px 8px;
+}
+
+/* форма редагування */
+
+.edit-form {
+  margin-top: 4px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 10px 16px;
+}
+
+.form-grid-2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.form-grid-4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+@media (max-width: 960px) {
+  .panel-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .form-grid,
+  .form-grid-2,
+  .form-grid-4 {
+    grid-template-columns: 1fr;
+  }
+  .admin-header-inner {
+    flex-wrap: wrap;
+  }
+}
+
+/* дії форми */
+
+.edit-actions {
+  margin-top: 12px;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+}
+
+.edit-actions-buttons {
+  display: flex;
+  gap: 8px;
+}
+
+.form-hint {
+  font-size: 12px;
+  color: #22c55e;
+}
+
+/* блоки деталей */
+
+.order-details-row {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 6px;
+  font-size: 13px;
+}
+
+.order-details-row .label {
+  width: 130px;
+  color: #9ca3af;
+}
+
+.order-items-title {
+  margin-top: 14px;
+  margin-bottom: 6px;
+  font-size: 14px;
+}
+
+/* порожній стан */
+
+.empty-text {
+  font-size: 13px;
+  color: #9ca3af;
+}
+
+.is-hidden {
+  display: none !important;
+}
+
+.block-subtitle {
+  margin: 12px 0 6px;
+  font-size: 14px;
+  color: #e5e7eb;
+}
+
+/* code */
+
+code {
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace;
+  font-size: 12px;
+  background: rgba(15, 23, 42, 0.95);
+  padding: 1px 5px;
+  border-radius: 6px;
+}

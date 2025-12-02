@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>ZooFeed Admin</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="admin.css" />
+</head>
+<body>
+  <header class="admin-header">
+    <div class="admin-header-inner">
+      <div class="admin-logo">ZOOFEED ADMIN</div>
+      <nav class="admin-tabs">
+        <button class="admin-tab is-active" data-tab="products">Товари</button>
+        <button class="admin-tab" data-tab="orders">Замовлення</button>
+        <button class="admin-tab" data-tab="reviews">Відгуки</button>
+        <button class="admin-tab" data-tab="settings">Контакти / футер</button>
+      </nav>
+      <a class="admin-link-site" href="index.html">← На сайт</a>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <!-- ================== ТОВАРИ ================== -->
+    <section class="tab-panel is-active" data-tab-panel="products" id="tab-products">
+      <div class="panel-grid">
+        <!-- Ліва колоночка: фільтри + таблиця -->
+        <div class="panel-left">
+          <div class="panel-block">
+            <div class="panel-block-header">
+              <div class="panel-block-title">Товари</div>
+              <button id="btnNewProduct" class="btn primary">+ Новий товар</button>
+            </div>
+
+            <div class="panel-filters">
+              <label class="field">
+                <span>Категорія</span>
+                <select id="filterCat" class="field-input">
+                  <option value="all">Усі категорії</option>
+                  <option value="dogs">Собаки</option>
+                  <option value="cats">Коти</option>
+                  <option value="birds">Птахи</option>
+                  <option value="rodents">Гризуни</option>
+                </select>
+              </label>
+
+              <label class="field">
+                <span>Пошук</span>
+                <input id="filterSearch" class="field-input" placeholder="Назва або бренд..." />
+              </label>
+            </div>
+
+            <div class="table-wrapper">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th style="width:70px;">ID</th>
+                    <th>Назва</th>
+                    <th style="width:80px;">Кат.</th>
+                    <th style="width:120px;">Бренд</th>
+                    <th style="width:80px;">Ціна</th>
+                  </tr>
+                </thead>
+                <tbody id="productsTbody">
+                  <!-- рендериться з JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <!-- Права колоночка: форма редагування -->
+        <div class="panel-right">
+          <div class="panel-block">
+            <div class="panel-block-title">Редагування товару</div>
+            <p class="panel-block-sub">
+              Оберіть товар із таблиці або створіть новий.
+            </p>
+
+            <form id="productForm" class="edit-form" autocomplete="off">
+              <div class="form-grid">
+                <label class="field">
+                  <span>ID (латиниця)</span>
+                  <input id="prodId" class="field-input" placeholder="d9, c12, b3..." />
+                  <p class="field-hint">
+                    Використовується в PRODUCT_DESCRIPTIONS (d1, c3, b2...). Для нових можна лишити порожнім — ID згенерується автоматично.
+                  </p>
+                </label>
+
+                <label class="field">
+                  <span>Назва</span>
+                  <input id="prodTitle" class="field-input" />
+                </label>
+
+                <label class="field">
+                  <span>Категорія</span>
+                  <select id="prodCategory" class="field-input">
+                    <option value="dogs">Собаки</option>
+                    <option value="cats">Коти</option>
+                    <option value="birds">Птахи</option>
+                    <option value="rodents">Гризуни</option>
+                  </select>
+                </label>
+
+                <label class="field">
+                  <span>Бренд</span>
+                  <input id="prodBrand" class="field-input" />
+                </label>
+
+                <label class="field">
+                  <span>Ціна, ₴</span>
+                  <input id="prodPrice" class="field-input" type="number" min="0" step="1" />
+                </label>
+
+                <label class="field">
+                  <span>Вага / фасування</span>
+                  <input id="prodWeight" class="field-input" placeholder="15 кг, 12×85 г..." />
+                </label>
+
+                <label class="field">
+                  <span>Файл зображення (ім’я)</span>
+                  <input id="prodImg" class="field-input" placeholder="наприклад, pes.png" />
+                  <p class="field-hint">
+                    Файл повинен лежати поруч із сайтом (як у дефолтних товарах).
+                  </p>
+                </label>
+              </div>
+
+              <label class="field">
+                <span>Опис (UA)</span>
+                <textarea id="prodDesc" class="field-input field-textarea" rows="6"></textarea>
+                <p class="field-hint">
+                  Це поле зберігається в <code>LS_PRODUCTS</code>. У <code>PRODUCT_DESCRIPTIONS</code> окремо можна задавати багатомовні описи за ID.
+                </p>
+              </label>
+
+              <div class="edit-actions">
+                <div id="prodHint" class="form-hint"></div>
+                <div class="edit-actions-buttons">
+                  <button type="button" id="btnDeleteProduct" class="btn ghost">Видалити</button>
+                  <button type="submit" class="btn primary">Зберегти товар</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== ЗАМОВЛЕННЯ ================== -->
+    <section class="tab-panel" data-tab-panel="orders" id="tab-orders">
+      <div class="panel-grid">
+        <div class="panel-left">
+          <div class="panel-block">
+            <div class="panel-block-title">Замовлення</div>
+            <p class="panel-block-sub">
+              Дані беруться з <code>zf_orders</code> у localStorage.
+            </p>
+
+            <div class="table-wrapper">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>ID</th>
+                    <th>Клієнт</th>
+                    <th>Сума</th>
+                    <th>Створено</th>
+                    <th>Статус</th>
+                  </tr>
+                </thead>
+                <tbody id="ordersTbody">
+                  <!-- JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-right">
+          <div class="panel-block">
+            <div class="panel-block-title">Деталі замовлення</div>
+            <div id="orderDetailsEmpty" class="empty-text">
+              Оберіть замовлення зліва.
+            </div>
+            <div id="orderDetailsBox" class="order-details is-hidden">
+              <div class="order-details-row">
+                <span class="label">ID:</span>
+                <span id="odId"></span>
+              </div>
+              <div class="order-details-row">
+                <span class="label">Клієнт:</span>
+                <span id="odClient"></span>
+              </div>
+              <div class="order-details-row">
+                <span class="label">Телефон:</span>
+                <span id="odPhone"></span>
+              </div>
+              <div class="order-details-row">
+                <span class="label">E-mail:</span>
+                <span id="odEmail"></span>
+              </div>
+              <div class="order-details-row">
+                <span class="label">Сума:</span>
+                <span id="odTotal"></span>
+              </div>
+              <div class="order-details-row">
+                <span class="label">Створено:</span>
+                <span id="odCreated"></span>
+              </div>
+              <div class="order-details-row">
+                <span class="label">Коментар клієнта:</span>
+                <span id="odComment"></span>
+              </div>
+
+              <div class="order-details-row">
+                <span class="label">Статус:</span>
+                <select id="odStatus" class="field-input field-input-sm">
+                  <option value="new">Нове</option>
+                  <option value="in_progress">В обробці</option>
+                  <option value="done">Виконано</option>
+                  <option value="cancelled">Скасовано</option>
+                </select>
+              </div>
+
+              <h4 class="order-items-title">Товари в замовленні</h4>
+              <div class="table-wrapper">
+                <table class="admin-table admin-table-sm">
+                  <thead>
+                    <tr>
+                      <th>Назва</th>
+                      <th>К-сть</th>
+                      <th>Ціна</th>
+                      <th>Сума</th>
+                    </tr>
+                  </thead>
+                  <tbody id="odItemsTbody">
+                    <!-- JS -->
+                  </tbody>
+                </table>
+              </div>
+
+              <div class="edit-actions">
+                <div id="odHint" class="form-hint"></div>
+                <div class="edit-actions-buttons">
+                  <button id="btnSaveOrderStatus" class="btn primary" type="button">
+                    Зберегти статус
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== ВІДГУКИ ================== -->
+    <section class="tab-panel" data-tab-panel="reviews" id="tab-reviews">
+      <div class="panel-grid">
+        <div class="panel-left">
+          <div class="panel-block">
+            <div class="panel-block-title">Відгуки користувачів</div>
+            <p class="panel-block-sub">
+              Додаються з публічного сайту та зберігаються в <code>zf_reviews</code>.
+              Відгуки (з <code>DEFAULT_REVIEWS</code>) тут не показуються.
+            </p>
+
+            <div class="table-wrapper">
+              <table class="admin-table">
+                <thead>
+                  <tr>
+                    <th>#</th>
+                    <th>Ім’я</th>
+                    <th>Місто</th>
+                    <th>Оцінка</th>
+                  </tr>
+                </thead>
+                <tbody id="reviewsTbody">
+                  <!-- JS -->
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+
+        <div class="panel-right">
+          <div class="panel-block">
+            <div class="panel-block-title">Деталі відгуку</div>
+            <div id="revDetailsEmpty" class="empty-text">
+              Оберіть відгук зліва.
+            </div>
+            <div id="revDetailsBox" class="order-details is-hidden">
+              <div class="order-details-row">
+                <span class="label">Ім’я:</span>
+                <span id="revName"></span>
+              </div>
+              <div class="order-details-row">
+                <span class="label">Місто / статус:</span>
+                <span id="revCity"></span>
+              </div>
+              <div class="order-details-row">
+                <span class="label">Питомeць:</span>
+                <span id="revPet"></span>
+              </div>
+              <div class="order-details-row">
+                <span class="label">Оцінка:</span>
+                <span id="revRating"></span>
+              </div>
+              <div class="order-details-row">
+                <span class="label">Текст:</span>
+                <span id="revText"></span>
+              </div>
+              <div class="order-details-row">
+                <span class="label">Дата:</span>
+                <span id="revDate"></span>
+              </div>
+
+              <div class="edit-actions">
+                <div id="revHint" class="form-hint"></div>
+                <div class="edit-actions-buttons">
+                  <button id="btnDeleteReview" class="btn ghost" type="button">
+                    Видалити відгук
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================== КОНТАКТИ / ФУТЕР ================== -->
+    <section class="tab-panel" data-tab-panel="settings" id="tab-settings">
+      <div class="panel-grid single">
+        <div class="panel-block">
+          <div class="panel-block-title">Контакти та футер</div>
+          <p class="panel-block-sub">
+            Налаштування зберігаються в <code>zf_settings</code>. На публічному
+            сайті вони завантажуються функцією <code>loadFooterSettings()</code>.
+          </p>
+
+          <form id="settingsForm" class="edit-form">
+            <div class="form-grid form-grid-2">
+              <label class="field">
+                <span>Телефон</span>
+                <input id="setPhone" class="field-input" />
+              </label>
+              <label class="field">
+                <span>E-mail</span>
+                <input id="setEmail" class="field-input" />
+              </label>
+              <label class="field">
+                <span>Опис доставки</span>
+                <input id="setDelivery" class="field-input" />
+              </label>
+              <label class="field">
+                <span>Номер картки / опис оплати</span>
+                <input id="setCard" class="field-input" />
+              </label>
+            </div>
+
+            <h4 class="block-subtitle">Соцмережі</h4>
+            <div class="form-grid form-grid-4">
+              <label class="field">
+                <span>Instagram</span>
+                <input id="setInstagram" class="field-input" placeholder="@zoo..." />
+              </label>
+              <label class="field">
+                <span>Facebook</span>
+                <input id="setFacebook" class="field-input" />
+              </label>
+              <label class="field">
+                <span>Telegram</span>
+                <input id="setTelegram" class="field-input" />
+              </label>
+              <label class="field">
+                <span>Viber</span>
+                <input id="setViber" class="field-input" />
+              </label>
+            </div>
+
+            <div class="edit-actions">
+              <div id="setHint" class="form-hint"></div>
+              <div class="edit-actions-buttons">
+                <button type="button" id="btnResetSettings" class="btn ghost">
+                  Повернути дефолтні
+                </button>
+                <button type="submit" class="btn primary">
+                  Зберегти налаштування
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Підключаємо спільні дані товарів -->
+  <script src="data.js"></script>
+  <!-- Скрипт адмінки -->
+  <script src="admin.js"></script>
+</body>
+</html>
