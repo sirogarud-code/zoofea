@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>ZooFeed — Реєстрація</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <!-- ГОЛОВНИЙ СТИЛЬ САЙТУ (поміняй назву, якщо у тебе не style.css) -->
+  <link rel="stylesheet" href="style.css" />
+
+  <!-- ДОДАТКОВИЙ СТИЛЬ СТОРІНКИ РЕЄСТРАЦІЇ -->
+  <link rel="stylesheet" href="register.css" />
+</head>
+
+<body class="page-register">
+  <!-- ======= ШАПКА (така ж по стилю, як на головній) ======= -->
+  <header class="header">
+    <div class="logo">ZOOFEED</div>
+
+    <nav class="nav">
+      <a href="index.html#store">Каталог</a>
+      <a href="index.html#about">Про нас</a>
+      <a href="index.html#reviews">Відгуки</a>
+      <a href="index.html#contacts">Контакти</a>
+    </nav>
+
+    <div class="header-right">
+      <select id="langSel">
+        <option value="ua" selected>UA</option>
+        <option value="en">EN</option>
+      </select>
+
+      <a href="index.html" class="btn ghost" style="font-size:13px;">
+        На головну
+      </a>
+    </div>
+  </header>
+
+  <!-- ======= ОСНОВНИЙ КОНТЕНТ ======= -->
+  <main class="register-main">
+    <section class="register-shell">
+      <!-- ЛІВА КОЛОНКА: текст/опис -->
+      <div class="register-info">
+        <h1 class="reg-title">Створіть акаунт</h1>
+
+        <p class="reg-sub">
+          Зареєструйтесь, щоб зберігати замовлення, обране та відгуки. Дані
+          зберігаються локально у вашому браузері.
+        </p>
+
+        <ul class="reg-bullets">
+          <li>Історія замовлень</li>
+          <li>Обране та кошик</li>
+          <li>Відгуки і коментарі</li>
+        </ul>
+
+        <p class="reg-note">
+          <strong>Увага:</strong> дані зберігаються лише локально в браузері.
+        </p>
+      </div>
+
+      <!-- ПРАВА КОЛОНКА: форма реєстрації -->
+      <div class="register-form-col">
+        <div class="register-form-card">
+          <h2 class="register-form-title">Реєстрація</h2>
+          <p class="register-form-sub">
+            Заповніть поля нижче, щоб створити акаунт.
+          </p>
+
+          <!-- ВАЖЛИВО: ID полів залишив такими, щоб ти міг легко прив’язати JS -->
+          <form id="registerForm" class="register-form" autocomplete="off">
+            <div class="reg-field">
+              <label for="regName">Ім’я / нік *</label>
+              <input
+                id="regName"
+                name="name"
+                type="text"
+                required
+              />
+            </div>
+
+            <div class="reg-field">
+              <label for="regEmail">E-mail *</label>
+              <input
+                id="regEmail"
+                name="email"
+                type="email"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div class="reg-field">
+              <label for="regPassword">Пароль *</label>
+              <input
+                id="regPassword"
+                name="password"
+                type="password"
+                autocomplete="new-password"
+                required
+              />
+            </div>
+
+            <div class="reg-field">
+              <label for="regPassword2">Повтор пароля *</label>
+              <input
+                id="regPassword2"
+                name="password2"
+                type="password"
+                autocomplete="new-password"
+                required
+              />
+            </div>
+
+            <div class="reg-two-cols">
+              <div class="reg-field">
+                <label for="regPhone">Телефон (необов’язково)</label>
+                <input
+                  id="regPhone"
+                  name="phone"
+                  type="tel"
+                />
+              </div>
+
+              <div class="reg-field">
+                <label for="regCity">Місто (необов’язково)</label>
+                <input
+                  id="regCity"
+                  name="city"
+                  type="text"
+                />
+              </div>
+            </div>
+
+            <div class="reg-actions">
+              <a href="index.html" class="btn ghost reg-back-btn">
+                На головну
+              </a>
+              <button type="submit" class="btn primary reg-submit-btn">
+                Зареєструватися
+              </button>
+            </div>
+
+            <p class="reg-login-link">
+              У мене вже є акаунт —
+              <a href="index.html" id="regGoLogin">Увійти</a>
+            </p>
+
+            <p id="regHint" class="reg-hint"></p>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Якщо будеш робити окрему логіку реєстрації — підключиш тут -->
+  <!-- <script src="register.js"></script> -->
+</body>
+  ...
+  <!-- Логіка реєстрації -->
+  <script src="register.js"></script>
+</body>
+</html>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <title>ZooFeed – товар</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Підключаємо ті ж стилі, що й на головній -->
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <!-- ====== ХЕДЕР – можеш взяти прямо з index.html ====== -->
+  <header class="header">
+    <div class="logo">ZOOFEED</div>
+
+    <nav class="nav">
+      <a href="index.html#store">Магазин</a>
+      <a href="index.html#about">Про нас</a>
+      <a href="index.html#reviews">Відгуки</a>
+      <a href="index.html#contacts">Контакти</a>
+    </nav>
+
+    <div class="header-right">
+      <select id="langSel">
+        <option value="ua" selected>UA</option>
+        <option value="en">EN</option>
+      </select>
+
+      <!-- тут твої кнопки "вибране / порівняння / корзина / акаунт" якщо є -->
+      <button id="accountBtn" class="btn ghost">Особистий кабінет</button>
+    </div>
+  </header>
+
+  <main class="page">
+    <!-- Хлібні крихти / назад -->
+    <div class="section-header">
+      <div class="section-sub">
+        <a href="index.html#store" style="color:#9ca3af;text-decoration:none;">← До каталогу</a>
+      </div>
+      <h1 id="ppTitle" class="section-title">Завантаження товару…</h1>
+    </div>
+
+    <!-- Основний блок товару (2 колонки) -->
+    <section class="pm-dialog" style="margin-top:4px;">
+      <div class="pm-product-main">
+        <!-- ЛІВА колонка – фото -->
+        <div class="pm-product-thumb">
+          <img id="ppImg" src="" alt="" />
+        </div>
+
+        <!-- ПРАВА колонка – текст -->
+        <div class="pm-product-info">
+          <div class="pm-breadcrumb" id="ppCat"></div>
+
+          <h2 class="pm-title" id="ppTitle2">...</h2>
+
+          <div class="pm-price-row">
+            <div class="pm-price-main" id="ppPrice">...</div>
+            <div class="pm-price-kg" id="ppWeight"></div>
+          </div>
+
+          <div class="pm-meta-row">
+            <span id="ppBrand"></span>
+            <span class="pm-stock-badge" data-state="ok">В наявності</span>
+          </div>
+
+          <p class="pm-desc" id="ppDesc">
+            Опис товару завантажується…
+          </p>
+
+          <div class="pm-actions">
+            <button id="ppAddToCart" class="btn primary pm-add-btn">
+              Додати в кошик
+            </button>
+          </div>
+
+          <p id="ppHint" class="pm-comment-hint" style="margin-top:8px;"></p>
+        </div>
+      </div>
+
+      <!-- Блок коментарів – можна потім доробити як на модалці -->
+      <div class="pm-comments">
+        <div class="pm-comments-header">
+          <h3 class="pm-comments-title">Коментарі покупців</h3>
+          <p style="font-size:12px;color:#9ca3af;margin:0;">
+            Тут можна зробити таку ж систему коментарів, як у модальному вікні.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER – можеш просто скопіювати з index.html -->
+  <footer class="site-footer">
+    <div class="sf-inner">
+      <div class="sf-col sf-col-brand">
+        <div class="sf-logo">ZooFeed</div>
+        <p class="sf-desc">
+          Demo-зоомагазин для тренування фронтенду. Усі дані зберігаються тільки у вашому браузері.
+        </p>
+      </div>
+    </div>
+    <div class="sf-bottom">
+      <span>© 2025 ZooFeed Demo</span>
+      <span>Data is stored only in your browser.</span>
+    </div>
+  </footer>
+
+  <!-- Підключаємо ті ж дані товарів -->
+  <script src="data.js"></script>
+  <!-- Якщо потрібно – твій app.js (кошик, акаунт тощо) -->
+  <script src="app.js"></script>
+  <!-- Логіка сторінки товару -->
+  <script src="product.js"></script>
+</body>
+</html>
